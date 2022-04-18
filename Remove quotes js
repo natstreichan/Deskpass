@@ -1,0 +1,5 @@
+#Store quote in my string
+myString = '“One only understands the things that one tames,“ said the fox.'
+
+#Remove single, double, or curly quotation marks from string
+console.log(myString.replace(/['‘’"“”]/g, ''));
