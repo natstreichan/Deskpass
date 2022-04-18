@@ -25,3 +25,84 @@ index.html
 </body>
 
 </html>
+
+
+index.jsx
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+class App extends React.Component {
+    change() {
+        this.tooltipInstance.position = this.dropElement.value;
+    }
+    render() {
+        return (<div id='container'>
+      <TooltipComponent ref={t => this.tooltipInstance = t} className="tooltip-box" content='Tooltip Content' target='#tooltip'>
+          <div id="tooltip">Show Tooltip</div>
+      </TooltipComponent>
+      <div class='ddl'>
+          <select id="positions" ref={d => this.dropElement = d} onChange={this.change.bind(this)} className="form-control drop-inline">
+              <option value="TopLeft">Top Left</option>
+              <option value="TopCenter" selected>Top Center</option>
+              <option value="TopRight">Top Right</option>
+              <option value="BottomLeft">Bottom Left</option>
+              <option value="BottomCenter">Bottom Center</option>
+              <option value="BottomRight">Bottom Right</option>
+              <option value="LeftTop">Left Top</option>
+              <option value="LeftCenter">Left Center</option>
+              <option value="LeftBottom">Left Bottom</option>
+              <option value="RightTop">Right Top</option>
+              <option value="RightCenter">Right Center</option>
+              <option value="RightBottom">Right Bottom</option>
+          </select>
+      </div>
+  </div>);
+    }
+}
+ReactDom.render(<App />, document.getElementById('sample'));
+
+
+style.css
+
+#loader {
+    color: #008cff;
+    height: 40px;
+    left: 45%;
+    position: absolute;
+    top: 45%;
+    width: 30%;
+  }
+
+  #container {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    margin-top: 100px;
+    transform: translateX(-50%);
+  }
+
+  .tooltip-box {
+    width: 400px;
+    height: 200px;
+  }
+
+  #tooltip {
+    background-color: #cfd8dc;
+    border: 3px solid #eceff1;
+    box-sizing: border-box;
+    padding: 20px 0;
+    width: 200px;
+    text-align: center;
+    color: #424242;
+    font-size: 20px;
+    user-select: none;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+  }
+
+  .ddl {
+    display: inline-block;
+    margin: 0 30px;
+  }
